@@ -80,9 +80,14 @@ PyMODINIT_FUNC initmouse(void)
 	if (mod == NULL) return; /* Error */
 
 	/* Add mouse button constants for click_mouse(). */
-	if (PyModule_AddIntMacro(mod, LEFT_BUTTON) < 0 ||
-		PyModule_AddIntMacro(mod, RIGHT_BUTTON) < 0 ||
-		PyModule_AddIntMacro(mod, CENTER_BUTTON) < 0) {
+	if (PyModule_AddIntMacro(mod, LEFT_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, RIGHT_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, CENTER_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, SCROLL_UP_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, SCROLL_DOWN_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, SCROLL_LEFT_BUTTON) < 0
+			|| PyModule_AddIntMacro(mod, SCROLL_RIGHT_BUTTON) < 0
+			) {
 		PyErr_SetString(PyExc_ValueError, "Error adding constants to mouse module");
 		return;
 	}
